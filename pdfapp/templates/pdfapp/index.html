@@ -1,0 +1,18 @@
+{% extends 'pdfapp/base.html' %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h5>Select a TGK (Togyz Kumalak) file:</h5><br/>
+
+    <input type="file" name="myfile"><br/><br/>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form><br/>   
+
+{% if tgk_content %}
+<p>{{ tgk_content | linebreaksbr }}</p>
+{% endif %}
+
+
+{% endblock %}
